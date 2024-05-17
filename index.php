@@ -146,6 +146,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
             width: 110px;
         }
+        .row {
+            display: flex;
+            justify-content: space-around;
+            align-items: end;
+        }
+        .col {
+            padding: .3rem;
+            flex-basis: auto;
+            border: 1px solid black
+        }
     </style>
 </head>
 <body style="text-align: center;">
@@ -196,27 +206,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php } ?>
                 <input type="submit" value="aceptar">
             </form>
-            <h2>Datos de la Persona:</h2>
-            <div class="datos_personas">
+            <div class="row">
+                <div class="col" style="">
+                    <h2>Datos de la Persona:</h2>
+                    <div class="datos_personas">
                 
-
-                <p><strong>Nombre:</strong> <?= $persona->nombre . " " . $persona->apellido; ?></p>
-                <p><strong>Altura:</strong> <?= $persona->altura; ?></p>
-                <p><strong>Color de Cabello:</strong> <?= $persona->colorcabello; ?></p>
-                <p><strong>Tipo de Cabello:</strong> <?= $persona->tipocabello; ?></p>
-                <p><strong>Color de Piel:</strong> <?= $persona->colorpiel; ?></p>
-                <p><strong>Talla de Zapato:</strong> <?= $persona->tallazapato; ?></p>
-                <p><strong>Color de Ojos:</strong> <?= $persona->colorojos; ?></p>
-                <p><strong>Peso:</strong> <?= $persona->peso; ?></p>
-                <p><strong>Contextura:</strong> <?= $persona->contextura; ?></p>
-                <p><strong>¿Usa lentes?:</strong> <?php 
-                if($persona->usalentes == "true") { 
-                    echo "Si usa"; 
-                } else {
-                    echo "No";
-                } 
-                ?></p>
-               <?php // var_dump($persona); ?>
+                        <p><strong>Nombre:</strong> <?= $persona->nombre . " " . $persona->apellido; ?></p>
+                        <p><strong>Altura:</strong> <?= $persona->altura; ?></p>
+                        <p><strong>Color de Cabello:</strong> <?= $persona->colorcabello; ?></p>
+                        <p><strong>Tipo de Cabello:</strong> <?= $persona->tipocabello; ?></p>
+                        <p><strong>Color de Piel:</strong> <?= $persona->colorpiel; ?></p>
+                        <p><strong>Talla de Zapato:</strong> <?= $persona->tallazapato; ?></p>
+                        <p><strong>Color de Ojos:</strong> <?= $persona->colorojos; ?></p>
+                        <p><strong>Peso:</strong> <?= $persona->peso; ?></p>
+                        <p><strong>Contextura:</strong> <?= $persona->contextura; ?></p>
+                        <p><strong>¿Usa lentes?:</strong> <?php
+                        if($persona->usalentes == "true") {
+                            echo "Si usa";
+                        } else {
+                            echo "No";
+                        }
+                        ?></p>
+                       <?php // var_dump($persona); ?>
+                    </div>
+                </div>
+                <div class="col">
+                    <h2>Datos de la Persona<br> Modificada:</h2>
+                    <div class="datos_personas">
+                
+                        <p><strong>Nombre:</strong> <?= $persona->nombre . " " . $persona->apellido; ?></p>
+                        <p><strong>Altura:</strong> <?= $persona->altura; ?></p>
+                        <p><strong>Color de Cabello:</strong> <?= $persona->colorcabello; ?></p>
+                        <p><strong>Tipo de Cabello:</strong> <?= $persona->tipocabello; ?></p>
+                        <p><strong>Color de Piel:</strong> <?= $persona->colorpiel; ?></p>
+                        <p><strong>Talla de Zapato:</strong> <?= $persona->tallazapato; ?></p>
+                        <p><strong>Color de Ojos:</strong> <?= $persona->colorojos; ?></p>
+                        <p><strong>Peso:</strong> <?= $persona->peso; ?></p>
+                        <p><strong>Contextura:</strong> <?= $persona->contextura; ?></p>
+                        <p><strong>¿Usa lentes?:</strong> <?php
+                        if($persona->usalentes == "true") {
+                            echo "Si usa";
+                        } else {
+                            echo "No";
+                        }
+                        ?></p>
+                       <?php // var_dump($persona); ?>
+                    </div>
+                </div>
             </div>
     
     </div>
