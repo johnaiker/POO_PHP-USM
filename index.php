@@ -194,11 +194,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     
                 <?php if ($opcion == 1) { ?>
 
-                    <input type="text" name="nuevo_valor" id="nuevo_valor">
+                    <input required type="text" name="nuevo_valor" id="nuevo_valor">
 
                 <?php } else { ?>
                     
-                    <input required type="text" name="nuevo_valor" id="nuevo_valor">
+                    <input type="text" name="nuevo_valor" id="nuevo_valor">
 
                 <?php } ?>
 
