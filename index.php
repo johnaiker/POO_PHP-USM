@@ -83,16 +83,20 @@ class Persona {
 
 $persona = new Persona();
 
+
 $opcion = 0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $opcion = (int) $_POST["opcion"];
 
     if ($opcion == 1 && isset($_POST["nuevo_valor"]) && isset($_POST["atributo"])) {
+        
+        $persona_mod = new Persona();
         $nuevo_valor = $_POST["nuevo_valor"];
-        $persona->{"set". ucfirst($_POST["atributo"])}($nuevo_valor);
+        $persona_mod->{"set". ucfirst($_POST["atributo"])}($nuevo_valor);
 
         $methodToUse = "set" . ucfirst($_POST["atributo"]);
+
 
         // echo "set". ucfirst($_POST["atributo"]);
         
@@ -147,6 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             width: 110px;
         }
         .row {
+            margin-top: 2rem;
             display: flex;
             justify-content: space-around;
             align-items: end;
@@ -230,21 +235,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                        <?php // var_dump($persona); ?>
                     </div>
                 </div>
+                <?php if($persona_mod->nombre != "Juan") {
+                    ?>
                 <div class="col">
                     <h2>Datos de la Persona<br> Modificada:</h2>
                     <div class="datos_personas">
                 
-                        <p><strong>Nombre:</strong> <?= $persona->nombre . " " . $persona->apellido; ?></p>
-                        <p><strong>Altura:</strong> <?= $persona->altura; ?></p>
-                        <p><strong>Color de Cabello:</strong> <?= $persona->colorcabello; ?></p>
-                        <p><strong>Tipo de Cabello:</strong> <?= $persona->tipocabello; ?></p>
-                        <p><strong>Color de Piel:</strong> <?= $persona->colorpiel; ?></p>
-                        <p><strong>Talla de Zapato:</strong> <?= $persona->tallazapato; ?></p>
-                        <p><strong>Color de Ojos:</strong> <?= $persona->colorojos; ?></p>
-                        <p><strong>Peso:</strong> <?= $persona->peso; ?></p>
-                        <p><strong>Contextura:</strong> <?= $persona->contextura; ?></p>
+                        <p><strong>Nombre:</strong> <?= $persona_mod->nombre . " " . $persona_mod->apellido; ?></p>
+                        <p><strong>Altura:</strong> <?= $persona_mod->altura; ?></p>
+                        <p><strong>Color de Cabello:</strong> <?= $persona_mod->colorcabello; ?></p>
+                        <p><strong>Tipo de Cabello:</strong> <?= $persona_mod->tipocabello; ?></p>
+                        <p><strong>Color de Piel:</strong> <?= $persona_mod->colorpiel; ?></p>
+                        <p><strong>Talla de Zapato:</strong> <?= $persona_mod->tallazapato; ?></p>
+                        <p><strong>Color de Ojos:</strong> <?= $persona_mod->colorojos; ?></p>
+                        <p><strong>Peso:</strong> <?= $persona_mod->peso; ?></p>
+                        <p><strong>Contextura:</strong> <?= $persona_mod->contextura; ?></p>
                         <p><strong>¿Usa lentes?:</strong> <?php
-                        if($persona->usalentes == "true") {
+                        if($persona_mod->usalentes == "true") {
                             echo "Si usa";
                         } else {
                             echo "No";
@@ -253,6 +260,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                        <?php // var_dump($persona); ?>
                     </div>
                 </div>
+                <?php } ?>
             </div>
     
     </div>
