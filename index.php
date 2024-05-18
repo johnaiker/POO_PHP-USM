@@ -2,16 +2,16 @@
 
 $methodToUse = "";
 class Persona {
-    public $nombre = "Juan";
-    public $apellido = "Perez";
-    public $altura = 1.74;
+    public $nombre = "Miguel";
+    public $apellido = "Gómez";
+    public $altura = 1.80;
     public $colorcabello = "Rojo";
     public $tipocabello = "Lacio";
-    public $colorpiel = "Rojo";
-    public $tallazapato = 42;
-    public $colorojos = "Azul";
+    public $colorpiel = "Caucásico";
+    public $tallazapato = 44;
+    public $colorojos = "Marrones";
     public $peso = 74;
-    public $contextura = "Delgada";
+    public $contextura = "Normal";
     public $usalentes = false;
 
     public function __call($name, $arguments) {
@@ -39,47 +39,7 @@ class Persona {
     }
 }
 
-// Función para modificar una persona
-// function modificar_persona($persona) {
-//     // Mostrar la lista de atributos y obtener la elección del usuario
-//     $atributos = [
-//         "nombre",
-//         "apellido",
-//         "altura",
-//         "colorcabello",
-//         "tipocabello",
-//         "colorpiel",
-//         "tallazapato",
-//         "colorojos",
-//         "peso",
-//         "contextura",
-//         "usalentes",
-//     ];
 
-//     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//         if (isset($_POST["atributo"]) && isset($_POST["nuevo_valor"])) {
-//             $atributo_seleccionado = $_POST["atributo"];
-//             $nuevo_valor = $_POST["nuevo_valor"];
-    
-//             // Validar el nuevo valor según el tipo de atributo
-//             if ($atributo_seleccionado == "altura" || $atributo_seleccionado == "peso") {
-//                 $nuevo_valor = (float) $nuevo_valor;
-//             } elseif ($atributo_seleccionado == "usalentes") {
-//                 $nuevo_valor = strtolower($nuevo_valor);
-//             }
-    
-//             // Modificar el atributo de la persona
-//             if (property_exists($persona, $atributo_seleccionado)) {
-//                 $persona->{$atributo_seleccionado} = $nuevo_valor;
-//                 echo "Atributo " . $atributo_seleccionado . " modificado exitosamente.";
-//             } else {
-//                 echo "El atributo seleccionado no existe en la persona.";
-//             }
-//         } else {
-//             echo "Por favor selecciona un atributo y proporciona un nuevo valor.";
-//         }
-//     }
-// }
 
 $persona = new Persona();
 
